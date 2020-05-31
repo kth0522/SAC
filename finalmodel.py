@@ -102,8 +102,8 @@ class FinalModel:
         self.batch_size = batch_size
 
         if is_test:
-            self.load_actor("AntBullet-saves/sac_actor_episode1100.h5")
-            self.load_critic("AntBullet-saves/sac_critic_episode1100.h5")
+            self.load_actor("sac-saves/sac_actor_episode1100.h5")
+            self.load_critic("sac-saves/sac_critic_episode1100.h5")
 
         # Tensorboard
         self.summaries = {}
