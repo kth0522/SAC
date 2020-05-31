@@ -4,12 +4,12 @@ import numpy as np
 from finalmodel import FinalModel
 
 
+
 def main():
     env = gym.make('AntBulletEnv-v0')
     env.render()
     model = FinalModel(env)
     avg = 0
-    model.load()
     for i in range(100):
         score = playgame(model, env)
         avg += score
@@ -34,8 +34,8 @@ def playgame(model, env):
     while True:
         env.render()
 
-        log_policy, action = model.actor.get_action(s)
-        next_s, reward, done, _ = env.step(np.clip(action, env.action_space.low, env.action_space.high))
+        action = model.get_action(s)
+        next_s, reward, done, _ = env.step(np.clip(action[0], env.action_space.low, env.action_space.high))
 
         s = next_s
 
